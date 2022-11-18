@@ -1,0 +1,67 @@
+---
+title: "flat_sortunsvg.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(svglite)
+library(testthat)
+```
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# Sort un svg
+
+```{r function-sortunsvg}
+#' sortunsvg sortunsvg
+#'
+#' @param graph L'objet à afficher dans le svg
+#' @param largeur La largeur en points
+#' @param hauteur La hauteur en points
+#' @param titre Le nom du svg qui sera exporté, sans l'extension
+#' @return un fichier contenant l'objet appelé image
+#'
+#' @importFrom svglite svglite
+#' @importFrom grDevices dev.off
+#' @export
+#'
+#' @examples
+sortunsvg<-function(graph,largeur,hauteur,titre){
+  svglite(filename = paste0(titre,".svg"), width=largeur, height = hauteur, standalone=TRUE)
+  plot(graph)
+  dev.off()
+}
+```
+
+```{r examples-sortunsvg}
+library(dplyr)
+library(ggplot2)
+sampledata<-data.frame(x=1:10,y=1:10)
+graphique2<-ggplot(sampledata)+
+  geom_point(aes(x,y))
+#' \dontrun{
+sortunsvg(graphique2,2,2,"graphiquedetest")
+#' }
+```
+
+```{r tests-sortunsvg}
+test_that("sortunsvg bugs", {
+  expect_error(sortunsvg(sampledata,"a","b","coucou"))
+})
+```
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_sortunsvg.Rmd", vignette_name = "Sort un svg")
+```
+

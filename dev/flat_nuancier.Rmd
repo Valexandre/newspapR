@@ -1,0 +1,55 @@
+---
+title: "flat_nuancier.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(testthat)
+```
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# Nuancier
+
+```{r function-nuancier}
+#' nuancier Title
+#'
+#' @param couldep Couleur de départ du dégradé
+#' @param coularr Couleur d'arrivée du dégradé
+#' @param nombre Nombre de couleurs entre les deux
+#' @importFrom grDevices colorRampPalette
+#' @return un vecteur contenant une liste de couleurs
+#' @export
+#'
+#' @examples
+nuancier <- function(couldep,coularr,nombre){
+  CreeMoiUnGradient <- colorRampPalette(c(couldep, coularr))
+  CreeMoiUnGradient(nombre)
+}
+```
+
+```{r examples-nuancier}
+nuancier("white","#CC2828",5)
+```
+
+```{r tests-nuancier}
+test_that("nuancier works", {
+  expect_equal(nuancier("white","#CC2828",5),c("#FFFFFF","#F2C9C9","#E59393", "#D85D5D","#CC2828"))
+})
+test_that("nuancier bugs", {
+  expect_error(nuancier(1,"a",5),"in")
+})
+```
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_nuancier.Rmd", vignette_name = "Nuancier")
+```
+

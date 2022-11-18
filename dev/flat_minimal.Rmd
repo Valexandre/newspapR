@@ -1,0 +1,74 @@
+---
+title: "flat_minimal.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(testthat)
+```
+
+<!--
+ You need to run the 'description' chunk in the '0-dev_history.Rmd' file before continuing your code there.
+-->
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# Sort un jpeg
+
+```{r function-sortunjpeg}
+#' sortunjpeg sortunjpeg
+#'
+#' @param graph L'objet à afficher dans le jpeg
+#' @param largeur La largeur en pixels
+#' @param hauteur La hauteur en pixels
+#' @param titre Le nom du jpeg qui sera exporté, sans l'extension
+#' @return un fichier contenant l'objet appelé image
+#'
+#' @importFrom grDevices jpeg
+#' @importFrom grDevices dev.off
+#' @export
+#'
+#' @examples
+sortunjpeg<-function(graph,largeur,hauteur,titre){
+  jpeg(filename = paste0(titre,".jpg"), width=largeur, height = hauteur, quality=100, units = "px",type="cairo")
+  plot(graph)
+  dev.off()
+}
+```
+
+```{r examples-sortunjpeg, eval=FALSE}
+library(dplyr)
+library(ggplot2)
+sampledata<-data.frame(x=1:10,y=1:10)
+graphique<-ggplot(sampledata)+
+  geom_point(aes(x,y))
+#' \dontrun{
+sortunjpeg(graphique,200,200,"graphiquedetest")
+#' }
+
+```
+
+
+```{r tests-sortunjpeg}
+test_that("sortunjpeg bugs", {
+  
+  expect_error(sortunjpeg(sampledata,"a","b","coucou"))
+})
+
+```
+
+
+  
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_minimal.Rmd", vignette_name = "Minimal")
+```

@@ -1,0 +1,6 @@
+
+^dev$
+^LICENSE\.md$
+^newspapR\.Rproj$
+^\.Rproj\.user$
+^data-raw$
