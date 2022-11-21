@@ -99,6 +99,12 @@ attachment::att_amend_desc()
 
 # Check the package
 devtools::check()
+usethis::use_git_remote(
+  name = "origin",
+  url = "https://github.com/Valexandre/newspapR.git",
+  overwrite = TRUE
+)
+#puis git push -u origin main
 ```
 
 # Share the package
