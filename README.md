@@ -12,3 +12,8 @@ Un package avec les fonctions utiles au quotidien dans mon journal
 ## Sortir un dégradé rapidement entre deux couleurs
 `nuancier("white","#CC2828",5)`
 
+## Mettre une majuscule à une phrase
+`majuscule("coucou petit lapin")`
+
+## Trouver ce qui n'est pas dans un vecteur
+`notin(1:3,4:2)`
