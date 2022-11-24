@@ -1,0 +1,52 @@
+---
+title: "flat_notin.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(testthat)
+library(dplyr)
+```
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# Trouver les absents d'un vecteur dans un autre
+
+```{r function-notin}
+#' notin notin
+#'
+#' @param x Le vecteur initial
+#' @param y Le vecteur dans lequel vérifier l'absence de x
+#'
+#' @return un vecteur avec les indices des x absents de y
+#' @export
+#'
+#' @examples
+notin <- function(x,y) {
+  !(x %in% y)
+}
+
+```
+
+```{r examples-notin}
+notin(1:10,20:6)
+```
+
+```{r tests-notin}
+test_that("notin works", {
+  expect_equal(notin(1:10,  20:6), c(rep(TRUE,5),rep(FALSE,5)))
+})
+```
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_notin.Rmd", vignette_name = "notin")
+```
+
