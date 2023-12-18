@@ -7,16 +7,16 @@
 sortunjpeg(graph, largeur, hauteur, titre)
 }
 \arguments{
-\item{graph}{L'objet Ã  afficher dans le jpeg}
+\item{graph}{L'objet à afficher dans le jpeg}
 
 \item{largeur}{La largeur en pixels}
 
 \item{hauteur}{La hauteur en pixels}
 
-\item{titre}{Le nom du jpeg qui sera exportÃ©, sans l'extension}
+\item{titre}{Le nom du jpeg qui sera exporté, sans l'extension}
 }
 \value{
-un fichier contenant l'objet appelÃ© image
+un fichier contenant l'objet appelé image
 }
 \description{
 sortunjpeg sortunjpeg
