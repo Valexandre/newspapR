@@ -8,6 +8,7 @@ editor_options:
 ```{r development, include=FALSE}
 library(dplyr)
 library(ggplot2)
+library(ragg)
 library(testthat)
 ```
 
@@ -31,13 +32,13 @@ pkgload::load_all(export_all = FALSE)
 #' @param titre Le nom du jpeg qui sera exporté, sans l'extension
 #' @return un fichier contenant l'objet appelé image
 #'
-#' @importFrom grDevices jpeg
+#' @importFrom ragg agg_jpeg
 #' @importFrom grDevices dev.off
 #' @export
 #'
 #' @examples
 sortunjpeg<-function(graph,largeur,hauteur,titre){
-  jpeg(filename = paste0(titre,".jpg"), width=largeur, height = hauteur, quality=100, units = "px",type="cairo")
+  ragg::agg_jpeg(filename = paste0(titre,".jpg"), width=largeur, height = hauteur)
   plot(graph)
   dev.off()
 }

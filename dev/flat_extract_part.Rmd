@@ -1,0 +1,57 @@
+---
+title: "flat_extract_part.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(testthat)
+```
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# extract_part
+
+```{r function-extract_part}
+#' extract_part Title
+#'
+#' @param x Une chaine de caractères
+#' @param sep Une chaine de caractères séparant deux parties
+#' @param partie Un chiffre indiquant quelle partie on veut récupérer
+#' @return Une chaine de caractères
+#'
+#' @export
+#'
+#' @examples
+extract_part <- function(x,sep,partie){
+  sapply(strsplit(x,sep), `[`, partie)
+} 
+
+```
+
+```{r examples-extract_part}
+Coucou<-"Amendement n°3"
+extract_part(x=Coucou,sep="°",partie=2)
+```
+
+```{r tests-extract_part}
+Coucou<-"Amendement n°3"
+test_that("extract_part works", {
+  expect_equal(extract_part(x=Coucou,sep="°",partie=2),expected = "3")
+  expect_error(extract_part(x=1:10,sep="w",partie=3))
+})
+```
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_extract_part.Rmd", vignette_name = "Extract part")
+```
+

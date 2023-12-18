@@ -1,0 +1,39 @@
+flat_extract_part.Rmd:
+  path: dev/flat_extract_part.Rmd
+  state: active
+  R: R/extract_part.R
+  tests: tests/testthat/test-extract_part.R
+  vignettes: vignettes/extract-part.Rmd
+  inflate:
+    flat_file: dev/flat_extract_part.Rmd
+    vignette_name: Extract part
+    open_vignette: true
+    check: true
+    document: true
+    overwrite: ask
+flat_minimal.Rmd:
+  path: dev/flat_minimal.Rmd
+  state: active
+  R: R/sortunjpeg.R
+  tests: tests/testthat/test-sortunjpeg.R
+  vignettes: vignettes/minimal.Rmd
+  inflate:
+    flat_file: dev/flat_minimal.Rmd
+    vignette_name: Minimal
+    open_vignette: true
+    check: true
+    document: true
+    overwrite: ask
+flat_notin.Rmd:
+  path: dev/flat_notin.Rmd
+  state: active
+  R: R/notin.R
+  tests: tests/testthat/test-notin.R
+  vignettes: vignettes/notin.Rmd
+  inflate:
+    flat_file: dev/flat_notin.Rmd
+    vignette_name: notin
+    open_vignette: true
+    check: true
+    document: true
+    overwrite: ask

@@ -18,7 +18,7 @@ pkgload::load_all(export_all = FALSE)
 # Trouver les absents d'un vecteur dans un autre
 
 ```{r function-notin}
-#' notin notin
+#' notin Title
 #'
 #' @param x Le vecteur initial
 #' @param y Le vecteur dans lequel vérifier l'absence de x
@@ -33,13 +33,27 @@ notin <- function(x,y) {
 
 ```
 
+
+```{r function-suite}
+#' notin Title
+#'
+#' @param x Le vecteur initial
+#' @param y Le vecteur dans lequel vérifier l'absence de x
+#'
+#' @return un vecteur avec les indices des x absents de y
+#' @export
+#'
+#' @examples
+`%!in%` = function(x,y) !(x %in% y)
+```
+
 ```{r examples-notin}
-notin(1:10,20:6)
+1:10 %!in% 20:6
 ```
 
 ```{r tests-notin}
 test_that("notin works", {
-  expect_equal(notin(1:10,  20:6), c(rep(TRUE,5),rep(FALSE,5)))
+  expect_equal(1:10%!in%20:6, c(rep(TRUE,5),rep(FALSE,5)))
 })
 ```
 
@@ -49,4 +63,3 @@ test_that("notin works", {
 # Execute in the console directly
 fusen::inflate(flat_file = "dev/flat_notin.Rmd", vignette_name = "notin")
 ```
-

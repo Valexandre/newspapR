@@ -13,7 +13,7 @@ All commands that you use to use when developing packages...
 
 ```{r description, eval=FALSE}
 # Describe your package
-fusen::fill_description(
+fusen::fill_description(overwrite = TRUE,
   pkg = here::here(),
   fields = list(
     Title = "NewspapR : les bouts de codes bien utiles",
