@@ -1,30 +1,14 @@
 Package: newspapR
-Title: NewspapR : Les Bouts De Codes Bien Utiles
 Version: 0.0.0.9000
-Authors@R: 
-    c(person(given = "Victor",
-             family = "Alexandre",
-             role = c("aut", "cre"),
-             email = "valexandre@leparisien.fr"),
-      person(given = "Le Parisien",
-             role = "cph"))
+Title: NewspapR : Les Bouts De Codes Bien Utiles
 Description: Tous les bouts de codes très utiles au Parisien.
+Authors@R: c(person(given = "Victor",
+         family = "Alexandre",
+         role = c("aut", "cre"),
+         email = "valexandre@leparisien.fr"),
+  person(given = "Le Parisien",
+         role = "cph"))
 License: MIT + file LICENSE
-Depends: 
-    R (>= 2.10)
-Imports: 
-    grDevices,
-    magrittr,
-    svglite
-Suggests: 
-    dplyr,
-    ggplot2,
-    knitr,
-    rmarkdown,
-    testthat
-VignetteBuilder: 
-    knitr
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
