@@ -17,3 +17,9 @@ Un package avec les fonctions utiles au quotidien dans mon journal
 
 ## Trouver ce qui n'est pas dans un vecteur
 `notin(1:3,4:2)`
+
+## Extraire une partie précédant ou suivant un délimiteur 
+```
+Coucou<-"Amendement n°3"
+extract_part(x=Coucou,sep="°",partie=2)
+```
